@@ -40,7 +40,7 @@ router.put('/:id', checkActionId, validateAction, (req, res, next) => {
 router.delete('/:id', checkActionId, (req, res, next) => {
     Actions.remove(req.params.id)
         .then(() => {
-            res.status(200);
+            res.status(200).json(req.theAction);
         })
         .catch(next);
 })
