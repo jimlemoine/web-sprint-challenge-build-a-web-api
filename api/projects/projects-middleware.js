@@ -22,9 +22,9 @@ function checkProjectId(req, res, next) {
 }
 
 function validateProject(req, res, next) {
-    const { name, description } = req.body;
-    if (!name || !name.trim() || !description || !description.trim()) {
-        res.status(400).json({ message: 'name and description are required!'});
+    const { name, description, completed } = req.body;
+    if (!name || !name.trim() || !description || !description.trim() || !completed) {
+        res.status(400).json({ message: 'name and description and completed status are required!'});
     } else {
         next();
     }

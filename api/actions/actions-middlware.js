@@ -36,9 +36,9 @@ function checkProjectId(req, res, next) {
 }
 
 function validateAction(req, res, next) {
-    const { name, description } = req.body;
-    if (!project_id || !name.trim() || !description || !description.trim()) {
-        res.status(400).json({ message: 'name and description are required!'});
+    const { description, notes } = req.body;
+    if (!notes || !notes.trim() || !description || !(description.trim().length < 128)) {
+        res.status(400).json({ message: 'description less than 128 characters and notes are required!'});
     } else {
         next();
     }
