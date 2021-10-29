@@ -1,4 +1,3 @@
-// Write your "actions" router here!
 const express = require('express');
 const {
     handleError,
@@ -19,7 +18,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', checkActionId, (req, res, next) => {
-    res.status(200).json(req.action)
+    res.status(200).json(req.theAction)
 });
 
 router.post('/', checkProjectId, validateAction, (req, res, next) => {

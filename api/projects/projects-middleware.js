@@ -1,4 +1,3 @@
-// add middlewares here related to projects
 const Project = require('./projects-model');
 
 function handleError(err, req, res, next) {
@@ -23,7 +22,7 @@ function checkProjectId(req, res, next) {
 
 function validateProject(req, res, next) {
     const { name, description, completed } = req.body;
-    if (!name || !name.trim() || !description || !description.trim() || !completed) {
+    if (!name || !name.trim() || !description || !description.trim() || !(completed == "true" || "false")) {
         res.status(400).json({ message: 'name and description and completed status are required!'});
     } else {
         next();

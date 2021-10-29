@@ -13,7 +13,7 @@ function checkActionId(req, res, next) {
     Action.get(req.params.id)
         .then(possibleAction => {
             if (possibleAction) {
-                req.action = possibleAction;
+                req.theAction = possibleAction;
                 next();
             } else {
                 next({ status: 404, message: 'action not found!' });
